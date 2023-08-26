@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}SignUp{% endblock title %}
+    <!-- CSS Stylesheet -->
+    {% block css_files %}
+        <link rel="stylesheet" href="{% static 'accounts/login.css' %}">
+    {% endblock css_files %}
+    
+    {% block content %}
+    <section class="vh-100">
+      <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-9 col-lg-6 col-xl-5">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+              class="img-fluid"
+              alt="Sample image"
+            />
+          </div>
+          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <div class="container">
+              {% if form.errors %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <p>There was an error in signing up...</p>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              {% endif %}
+            </div>
+            <form class="form-floating" action="{% url 'register-page' %}" method=POST>
+              <h3 class="signup-heading">SignUp</h3>
+              {% csrf_token %}
+              {% comment %} <label for="username">Username</label>
+              <label for="emsil">Email</label>
+              <label for="password1">Password</label>
+              <label for="password2">Password</label> {% endcomment %}
+              {{ form.as_p }}
+              {% comment  %}
+              <!-- Username Input -->
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  id="name"
+                  name="username"
+                  class="form-control form-control-lg"
+                  placeholder="Username"
+                />
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control form-control-lg"
+                  placeholder="Email Address"
+                />
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-3">
+                <input
+                  type="password"
+                  id="password"
+                  name="password1"
+                  class="form-control form-control-lg"
+                  placeholder="Password"
+                />
+              </div>
+
+              <!-- Re-enter Password input -->
+              <div class="form-outline mb-3">
+                <input
+                  type="password"
+                  id="repassword"
+                  name="password2"
+                  class="form-control form-control-lg"
+                  placeholder="Reenter Password"
+                />
+              </div>
+
+              {% endcomment %}
+              {% comment %} <div
+                class="d-flex justify-content-between align-items-center"
+              ></div> {% endcomment %}
+
+              {% comment %} <div class="signup-btn text-center text-lg-start mt-4 pt-2"> {% endcomment %}
+                <input
+                  type="submit"
+                  class="login-btn btn btn-primary btn-lg"
+                  style="padding-left: 2.5rem; padding-right: 2.5rem"
+                  value="Sign Up"
+                >
+                {% comment %} </div> {% endcomment %}
+            </form>
+          </div> 
+        </div>
+      </div>
+{% endblock content %}

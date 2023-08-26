@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Publish a Ride{% endblock title %}
+<!-- CSS Stylesheet -->
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'pool_car/about.css' %}">
+{% endblock css_files %}
+{% block content %}
+  <section id="poject">
+    <h1 class="section-heading justify-content-center" style="text-align: center; color: #072ac8; font-weight:bolder; letter-spacing: 0.03rem; padding-bottom: 1rem; padding-left:5rem; padding-top:1rem" >About PoolCar</h1>
+    <div class="row about-project">
+      <div class="description col">
+        <h3 style="color: #1565c0; letter-spacing: 0.03rem; padding-bottom: 0.5rem;">Features</h3>
+        <div style="padding-left: 2rem">
+        <p>Our platform provides a user-friendly interface for both drivers and passengers. Here's a brief overview of
+          how it works:</p>
+        <ul style="list-style-type: none">
+          <li style="padding-bottom: .2rem;"><i class="fa-solid fa-user-plus" style="color: #ffb703; font-size: large;"></i> &nbsp;&nbsp;&nbsp;Sign up and create a profile on our platform.</li>
+          <li style="padding-bottom: .2rem;"><i class="fa-solid fa-suitcase-rolling" style="color: #ffb703; font-size: large;"></i> &nbsp;&nbsp;&nbsp; Drivers can list their upcoming trips, specifying the starting point, destination, date, and available
+            seats.</li>
+          <li style="padding-bottom: .2rem;"><i class="fa-solid fa-car" style="color: #ffb703; font-size: large;"></i> &nbsp;&nbsp;&nbsp; Passengers can search for available rides based on their desired route and date.</li>
+          <li style="padding-bottom: .2rem;"><i class="fa-solid fa-car" style="color: #ffb703; font-size: large;"></i> &nbsp;&nbsp;&nbsp; Passengers can  join a ride, and drivers can review the passengers.</li>
+          </li>
+        </ul>
+      </div>
+      </div>
+        <div class="picture col col-lg-4">
+          <img class="about-project-img" src="{% static 'pool_car/images/img2.jpg' %}" alt="Doctor Image" width="80%" />
+        </div>
+    </div>
+      <h3 style="color: #1565c0; letter-spacing: 0.03rem; padding-bottom: 0.5rem;">Benefits</h3>
+      <p>PoolCar offers several benefits:</p>
+      <ul style="list-style-type: none;">
+        <li style="padding-bottom: .2rem;"><i class="fa-regular fa-coins" style="color: #ffb703; font-size: large;"></i> &nbsp;&nbsp;&nbsp; Cost-saving: By sharing rides, users can split the cost of fuel and tolls, resulting in significant
+          savings.</li>
+        <li style="padding-bottom: .2rem;"><i class="fa-solid fa-car-on" style="color: #ffb703; font-size: large;"></i> &nbsp;&nbsp;&nbsp; Reduced traffic congestion: Carpooling helps reduce the number of vehicles on the road, leading to less
+          traffic
+          and shorter commute times.</li>
+        <li style="padding-bottom: .2rem;"><i class="fa-solid fa-seedling" style="color: #ffb703; font-size: large;"></i> &nbsp;&nbsp;&nbsp; Environmental impact: By sharing rides, we can reduce carbon emissions and contribute to a cleaner
+          environment.
+        </li>
+        <li style="padding-bottom: .2rem;"><i class="fa-regular fa-group-arrows-rotate"  style="color: #ffb703; font-size: large;"></i> &nbsp;&nbsp;&nbsp; Community building: Carpooling brings people together and fosters a sense of community by connecting individuals with shared travel interests.</li>
+      </ul>
+      <p>Join PoolCar today and start enjoying the benefits of shared transportation!</p>
+    </section>
+{% endblock content %}

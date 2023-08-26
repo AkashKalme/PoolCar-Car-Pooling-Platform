@@ -1,0 +1,78 @@
+.publish-heading {
+  color: #072ac8;
+  letter-spacing: 0.05rem;
+  word-spacing: 0.1rem;
+  padding-bottom: 1rem;
+  font-weight: 900;
+}
+
+.publish-subheading {
+  color: #1565c0;
+  letter-spacing: 0.03rem;
+  padding-bottom: 0.5rem;
+}
+
+.please-login {
+  color: #072ac8;
+  letter-spacing: 0.03rem;
+  padding-bottom: 0.5rem;
+}
+
+.login-here {
+  text-decoration: none;
+  color: rgb(103, 17, 17);
+}
+
+.publish-page {
+  margin-top: 5%;
+  width: 40%;
+  padding-left: 5%;
+}
+
+.form-sections {
+  width: 100%;
+  display: flex;
+}
+
+.car {
+  padding-left: 50%;
+}
+
+.form-control {
+  width: 30rem;
+  margin-bottom: 1.2rem;
+}
+
+.main-btn {
+  background-color: #1e96fc;
+  padding-right: 1rem;
+  margin-right: 1rem;
+}
+
+.main-btn:hover {
+  background-color: #072ac8;
+}
+
+.publish-btn {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+footer {
+  background-color: #a2d6f9;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  color: #a3bac3;
+}
+
+.footer-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.footer-icon {
+  font-size: 2rem;
+  color: #636a6d;
+}

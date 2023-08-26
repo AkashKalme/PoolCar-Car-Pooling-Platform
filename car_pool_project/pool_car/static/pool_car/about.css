@@ -1,0 +1,11 @@
+body {
+  font-family: "Pathway Extreme", sans-serif;
+  background-color: #ebf2fa;
+  margin-top: 5rem;
+  margin-left: 5rem;
+}
+
+.about-project {
+    display: inline-flex;
+}
+

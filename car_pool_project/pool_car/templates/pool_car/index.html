@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css_files %}
+  <link rel="stylesheet" href="{% static 'pool_car/index.css' %}">
+{% endblock css_files %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <div class="heading">
+      <div class="headtext">
+        <h1 class="mainhead">
+          Reach Your Destination <br />
+          at Lowest Price
+        </h1>
+        <p class="maintext">
+          PoolCar enables you to share your car or ride with <br />
+          a to be buddy to reach your destination. <br />
+          We provide the most secure rides so that <br />
+          you can be as safe as possible.
+        </p>
+        <div class="main-buttons">
+          <form action="/publish/">
+            <button class="main-btn publish-btn btn btn-lg btn-primary">
+              Publish a Ride
+            </button>
+          </form>
+          <form action='{% url 'search-page' %}'>
+            <button class="main-btn find-btn btn btn-lg btn-primary">
+              Find a Ride
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="headimage">
+        <img class="image1" src="static/pool_car/images/img2.jpg" alt="PoolCar" width="80%" />
+      </div>
+    </div>
+    <div class="features">
+      <div class="feature price">
+        <i class="feature-sign fa-solid fa-indian-rupee-sign"></i>
+        <h3 class="feature-heading">Ride at Lowest Price</h3>
+        <p class="feature-text">
+          No matter where you want to reach, we provide the minimal costs to
+          chhose from. Find the perfect ride from our wide range of destinations
+          and routes at lowest prices.
+        </p>
+      </div>
+      <div class="feature trust">
+        <i class="feature-sign fa-regular fa-id-card"></i>
+        <h3 class="feature-heading">Autheticated Drivers</h3>
+        <p class="feature-text">
+          The car condition is verified by us, so you get a comfortable ride. We
+          check reviews, profiles and IDs, so you know who you’re travelling
+          with and can book your ride at ease on our secure platform.
+        </p>
+      </div>
+      <div class="feature easy">
+        <i class="feature-sign fa-solid fa-bolt-lightning"></i>
+        <h3 class="feature-heading">Search, Select and Go!</h3>
+        <p class="feature-text">
+          Booking a ride has never been easier! Thanks to our simple app powered
+          by great technology, you can book a ride close to you in just minutes.
+        </p>
+      </div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="reviews">
+      <h2 class="reviews-heading">Listen to "What Our Customers Say?"</h2>
+      <div
+        id="carouselExampleControlsNoTouching"
+        class="carousel slide"
+        data-bs-touch="false"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="review review1">
+              <div class="review-image">
+                <img
+                  class="img-rev"
+                  src="static/pool_car/images/rev1.jpg"
+                  alt="Person1"
+                  width="500rem"
+                  height="400rem"
+                />
+              </div>
+              <div class="review-text">
+                <h3 class="review-text-heading">
+                  I prefer travelling with People
+                </h3>
+                <p class="review-text-desc">
+                  I like to travel with people as they I do not get bored. It
+                  also gives me some income.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="review review2">
+              <div class="review-image">
+                <img
+                  class="img-rev"
+                  src="static/pool_car/images/rev2.jpg"
+                  alt="Person1"
+                  width="500rem"
+                  height="400rem"
+                />
+              </div>
+              <div class="review-text">
+                <h3 class="review-text-heading">Provides the lowest prices</h3>
+                <p class="review-text-desc">
+                  I have svaed a lot of money by using PoolCar. It is super
+                  easy. I regularly travel to my office using PoolCar.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="review review3">
+              <div class="review-image">
+                <img
+                  class="img-rev"
+                  src="static/pool_car/images/rev3.jpg"
+                  alt="Person1"
+                  width="500rem"
+                  height="400rem"
+                />
+              </div>
+              <div class="review-text">
+                <h3 class="review-text-heading">Recovers My Fuel Cost</h3>
+                <p class="review-text-desc">
+                  My business involves lot of travelling. So, I use PoolCar
+                  which helps in reducing my business cost. Also, I get to meet
+                  new people.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControlsNoTouching"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControlsNoTouching"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    {% endblock content %}

@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- CSS Stylesheet -->
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'pool_car/search.css' %}">
+{% endblock css_files %}
+{% block title %}Find a Ride{% endblock title %}
+{% block content %}
+<div class="publish-page">
+    <h2 class="publish-heading">Find a Ride</h2>
+    <form class="form-floating" action="{% url 'filter-page' %}" method=GET>
+    {% csrf_token %}
+    <div class="publish-form">
+        <div class="form-sections">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="source" name="source" placeholder="Source">
+                <label for="source">From</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="destination" name="destination" placeholder="Destination">
+                <label for="destination">To</label>
+            </div>
+            <div class="form-floating">
+                <input type="date" class="form-control" id="journey-date" name="journey-date" placeholder="Journey Date">
+                <label for="journey-date">Date of Journey</label>
+            </div>
+        </div>
+    </div>
+    <div class="publish-button-div d-flex justify-content-lg-center" style="padding-bottom: 2rem;">
+            <div>
+                <button class="main-btn find-btn btn btn-lg btn-primary">
+                    <a style="color : white ; text-decoration:none;">Find Ride</a>
+                </button>
+            </div>
+            <div>
+            </div>
+            <div>
+                <button class="main-btn find-btn btn btn-lg btn-primary" style="align: left">
+                    <a style="color : white ; text-decoration:none;">Display All Rides</a>
+                </button>
+            </div>
+    </div>
+</div>
+{% if not rides %}
+<h1 style="color: red; letter-spacing: 0.03rem; padding-bottom: 0.5rem; margin-left: 7rem;">Sorry! No Rides to Show.
+</h1>
+{% else %}
+{% for ride in rides %}
+<ul style="margin-left: 7rem; display:flex; list-style-type: none; margin-bottom: 5rem;">
+    <li
+        style="background: #ffeedd; padding-top:0; padding-left: 15rem; padding-right: 15rem; border-radius: 12px; border: solid #072ac8;">
+        <div style="display:flex;">
+            <table>
+                <tr>
+                    <td>
+                        <div style="padding-right: 20rem; align:left;">
+                            <table>
+                                <tr>
+                                    <td style="font-weight: bold; padding-right: 2rem;">
+                                        Source:
+                                    </td>
+                                    <td>
+                                        {{ ride.journey_details.source }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; padding-right: 2rem;">
+                                        Destination:
+                                    </td>
+                                    <td>
+                                        {{ ride.journey_details.destination }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; padding-right: 2rem;">
+                                        Date:
+                                    </td>
+                                    <td>
+                                        {{ ride.journey_details.date_of_journey }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; padding-right: 2rem;">
+                                        Cost per Person:
+                                    </td>
+                                    <td>
+                                        {{ ride.journey_details.cost_per_person }}
+                                    </td>
+                                <tr>
+                                    <br>
+                                <tr>
+                                    <td style="font-weight: bold; padding-right: 2rem;">
+                                        Car Name:
+                                    </td>
+                                    <td>
+                                        {{ ride.car_details.car_name }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; padding-right: 2rem;">
+                                        Car Number:
+                                    </td>
+                                    <td>
+                                        {{ ride.car_details.vehicle_number }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; padding-right: 2rem;">
+                                        Driver Name:
+                                    </td>
+                                    <td>
+                                        {{ ride.driver_details.driver_name }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; padding-right: 2rem;">
+                                        Available Seats:
+                                    </td>
+                                    <td>
+                                        {{ ride.journey_details.number_of_seats }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; padding-right: 2rem;">
+                                        Poolers:
+                                    </td>
+                                    {% for pooler in ride.poolers.all %}
+                                    {% if ride.publisher.user.username != pooler.user.username %}
+                                    <td>
+                                        {{ pooler.user.username | title }}
+                                    </td>
+                                    {% endif %}
+                                    {% endfor %}
+                                </tr>
+                            </table>
+                        </div>
+                        <br>
+                    </td>
+                    <td>
+                        <div>
+                            {% if user.is_authenticated %}
+                            <button class="main-btn publish-btn btn btn-primary">
+                                <a style="color : white ; text-decoration:none;" href='{% url 'join-ride' ride.id %}'>
+                                    Join Ride</a>
+                            </button>
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </li>
+</ul>
+{% endfor %}
+{% endif %}
+{% endblock content %}

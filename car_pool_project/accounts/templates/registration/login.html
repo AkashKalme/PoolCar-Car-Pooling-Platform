@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+    <!-- CSS Stylesheet -->
+    {% block css_files %}
+        <link rel="stylesheet" href="{% static 'accounts/login.css' %}">
+    {% endblock css_files %}
+    
+    {% block content %}
+    <section class="vh-100">
+      <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-9 col-lg-6 col-xl-5">
+            <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+              class="img-fluid"
+              alt="Sample image"
+            />
+          </div>
+          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            {% if form.errors %}
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <p>Oops! Username and Password do not match.</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endif %}
+            <div class="container">
+              {% if messages %}
+                  {% for message in messages %}
+                      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                          {{ message }}
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                  {% endfor %}
+              {% endif %}
+            </div>
+            <form action="{% url 'login-page' %}" method=POST>
+              {% csrf_token %}
+              <h3 class="login-heading">Login</h3>
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="form-control form-control-lg"
+                  placeholder="Username"
+                />
+              </div>
+
+              <!-- Password input -->
+              <div class="form-outline mb-3">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="form-control form-control-lg"
+                  placeholder="Password"
+                />
+              </div>
+
+              <div
+                class="d-flex justify-content-between align-items-center"
+              ></div>
+
+              <div class="text-center text-lg-start mt-4 pt-2">
+                <input
+                type="submit"
+                class="login-btn btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem"
+                value="Login"
+                >
+              </form>
+                
+              <p class="small fw-bold mt-2 pt-1 mb-0">
+                Don't have an account?
+                <a href="{% url 'register-page' %}" class="link-danger">Register</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock content %}

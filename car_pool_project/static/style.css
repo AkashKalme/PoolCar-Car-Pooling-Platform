@@ -1,0 +1,38 @@
+body {
+  font-family: "Pathway Extreme", sans-serif;
+  background-color: #ebf2fa;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-custom {
+  color: #624cab;
+  display: inline;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+.login-item {
+  font-weight: 500;
+}
+
+footer {
+  background-color: #a2d6f9;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  color: #a3bac3;
+}
+
+.footer-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.footer-icon {
+  font-size: 2rem;
+  color: #636a6d;
+}

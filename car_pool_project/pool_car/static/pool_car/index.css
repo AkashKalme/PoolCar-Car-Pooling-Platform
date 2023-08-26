@@ -1,0 +1,143 @@
+body {
+  font-family: "Pathway Extreme", sans-serif;
+  background-color: #ebf2fa;
+  margin: 0;
+}
+
+.heading {
+  margin-top: 8rem;
+  margin-bottom: 5rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
+  display: flex;
+  width: 100%;
+}
+
+.headtext {
+  width: 100%;
+  padding-right: 5rem;
+  padding-left: 10rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.mainhead {
+  padding-bottom: 1rem;
+  color: #072ac8;
+}
+
+.maintext {
+  padding-bottom: 1rem;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.2rem;
+}
+
+.main-buttons {
+  display: flex;
+}
+
+.main-btn {
+  background-color: #1e96fc;
+  padding-right: 1rem;
+  margin-right: 1rem;
+}
+
+.main-btn:hover {
+  background-color: #072ac8;
+}
+
+.publish-btn,
+.find-btn {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.headimage {
+  width: 100%;
+}
+
+.features {
+  background-color: #a2d6f9;
+  display: flex;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.feature {
+  width: 35%;
+  padding-left: 5rem;
+  padding-right: 2rem;
+  letter-spacing: 0.05rem;
+  word-spacing: 0.1rem;
+}
+
+.feature-sign {
+  font-weight: 900;
+  font-size: 2rem;
+  color: #ffc600;
+  padding-bottom: 1rem;
+}
+
+.feature-heading {
+  color: #072ac8;
+  font-weight: 800;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.feature-text {
+  font-size: large;
+}
+
+.reviews {
+  padding-top: 5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.reviews-heading {
+  text-align: center;
+  color: #072ac8;
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.2rem;
+}
+
+.review {
+  display: flex;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.img-rev {
+  border-radius: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.review-text {
+  padding-top: 10rem;
+  padding-left: 3rem;
+  padding-right: 5rem;
+}
+
+.review-text-heading {
+  color: #072ac8;
+  letter-spacing: 0.05rem;
+  word-spacing: 0.1rem;
+}
+
+.review-text-desc {
+  letter-spacing: 0.05rem;
+  word-spacing: 0.1rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  color: #072ac8;
+}

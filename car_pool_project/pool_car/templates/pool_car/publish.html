@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Publish a Ride{% endblock title %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'pool_car/publish.css' %}">
+{% endblock css_files %}
+
+{% block content %}
+<div class="publish-page">
+    <h2 class="publish-heading">Publish a Ride</h2>
+    <form class="form-floating" action="{% url 'publish-form' %}" method="POST">
+
+        <div class="publish-form">
+            <div class="form-sections">
+                <div class="journey">
+                    <h3 class="publish-subheading">Journey Details</h3>
+                    {% csrf_token %}
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="source" placeholder="Source" name="source">
+                        <label for="source" required>From (Source)</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="destination" placeholder="Destination"
+                            name="destination" required>
+                        <label for="destination">To (Destination)</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="date" class="form-control" id="journey-date" placeholder="Journey Date"
+                            name="date_of_journey" required>
+                        <label for="journey-date">Date of Journey</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="number-of-seats" placeholder="Number of Seates"
+                            name="number_of_seats" required>
+                        <label for="number-of-seats">Number of Seats</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="cost" placeholder="Cost" name="cost_per_person" required>
+                        <label for="cost">Cost per Person</label>
+                    </div>
+                </div>
+                <div class="car">
+                    <h3 class="publish-subheading">Car Details</h3>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="car" placeholder="Car" name="car_name" required>
+                        <label for="car">Car Name</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="vehicle-number" placeholder="Vehicle Number"
+                            name="vehicle_number" required>
+                        <label for="Vehicle Number">Vehicle Number</label>
+                    </div>
+                    <h3 class="publish-subheading">Driver Details</h3>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="driver-name" placeholder="Driver Name"
+                            name="driver_name" required>
+                        <label for="driver-name">Driver Name</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="licence-number" placeholder="Licence Number"
+                            name="driver_licence_number" required>
+                        <label for="licence-number">Licence Number</label>
+                    </div>
+                </div>
+            </div>
+            {% if user.is_authenticated %}
+                <div class="publish-button-div d-flex justify-content-lg-center">
+                    <button class="main-btn publish-btn btn btn-lg btn-primary">
+                        Publish Ride
+                    </button>
+                </div>
+            {% else %}
+                <h4 class="please-login" style="color: #072ac8; letter-spacing: 0.03rem; padding-bottom: 0.5rem;">
+                    You need to be logged in to "Publish a Ride".
+                </h4>
+                <a class="login-here" style="text-decoration: none; font-weight:bold; color: rgb(103, 17, 17);" href="{% url 'login-page' %}">
+                    Click Here to Login
+                </a>
+            {% endif %}
+        </div>
+    </form>
+</div>
+{% endblock content %}

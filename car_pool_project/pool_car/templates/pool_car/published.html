@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Your Rides{% endblock title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'pool_car/published.css' %}">
+{% endblock css_files %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<br> <br> <br>
+<h1 class="your-rides-heading"
+  style="color: #072ac8; font-weight:bolder; letter-spacing: 0.03rem; padding-bottom: 2rem; padding-left:5rem; padding-top:1rem">
+  Your Rides</h1>
+{% for ride in rides %}
+<ul style="margin-left: 7rem; display:flex; list-style-type: none; margin-bottom:5rem;">
+  {% if user == ride.publisher.user %}
+  <li style="background: #ffeedd; padding-top:0; padding-left: 15rem; padding-right: 15rem; border-radius: 12px; border: solid #072ac8;">
+    <div style="display:flex;">
+      <table>
+        <tr>
+          <td>
+            <div style="padding-right: 20rem; align:left;">
+              <table>
+                <tr>
+                  <td style="font-weight: bold; padding-right: 2rem;">
+                    Source:
+                  </td>
+                  <td>
+                    {{ ride.journey_details.source }}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="font-weight: bold; padding-right: 2rem;">
+                    Destination:
+                  </td>
+                  <td>
+                    {{ ride.journey_details.destination }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="font-weight: bold; padding-right: 2rem;">
+                    Date:
+                  </td>
+                  <td>
+                    {{ ride.journey_details.date_of_journey }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td style="font-weight: bold; padding-right: 2rem;">
+                    Cost per Person:
+                  </td>
+                  <td>
+                    {{ ride.journey_details.cost_per_person }}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="font-weight: bold; padding-right: 2rem;">
+                    Car Name:
+                  </td>
+                  <td>
+                    {{ ride.car_details.car_name }}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="font-weight: bold; padding-right: 2rem;">
+                    Car Number:
+                  </td>
+                  <td>
+                    {{ ride.car_details.vehicle_number }}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="font-weight: bold; padding-right: 2rem;">
+                    Driver Name:
+                  </td>
+                  <td>
+                    {{ ride.driver_details.driver_name }}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="font-weight: bold; padding-right: 2rem;">
+                    Poolers:
+                  </td>
+                    <td>
+                      {{ ride.publisher.user.username | title }}
+                    </td>
+                    {% for pooler in ride.poolers.all %}
+                    {% if ride.publisher.user.username != pooler.user.username %}
+                      <tr>
+                        <td></td>
+                        <td>
+                          {{ pooler.user.username | title }}
+                        </td>
+                      </tr>
+                    {% endif %}
+                    {% endfor %}
+                  </tr>
+                  <br>
+                </table>
+              </div>
+              <br>
+          </td>
+          <td>
+            <div>
+              <form action='{% url 'delete-ride' ride.id %}' method=GET>
+                {% csrf_token %}
+                <div class="publish-button-div d-flex justify-content-lg-center">
+                  <button class="main-btn publish-btn btn btn-danger">
+                    Delete Ride
+                  </button>
+                </div>
+              </form>
+            </div>
+          </td>
+      </table>
+
+    </div>
+  </li>
+</ul>
+{% endif %}
+{% endfor %}
+{% else %}
+<br> <br> <br>
+<h2 class="please-login" style="color: #072ac8; letter-spacing: 0.03rem; padding-bottom: 0.5rem; padding-left:10rem;">
+  You need to be logged in to view "Your Rides".
+</h2>
+<a class="login-here" style="text-decoration: none; font-weight:bold; color: rgb(103, 17, 17); padding-left:10rem;"
+  href="{% url 'login-page' %}">
+  Click Here to Login
+</a>
+{% endif %}
+{% endblock content %}
