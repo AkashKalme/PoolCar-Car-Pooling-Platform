@@ -1,4 +1,4 @@
-# PoolCar-Car-Pooling-Platform
+# PoolCar: Car Pooling Platform
 Car Pooling Application that connects two compatible co-travelers who can share a ride.
 
 ### Features
