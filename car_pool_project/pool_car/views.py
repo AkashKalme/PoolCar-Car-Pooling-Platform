@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import Journey, Car, Driver, Ride, User, Profile
 from django.contrib import messages
+import time
 
 # Create your views here.
 
@@ -18,8 +19,7 @@ def home(request):
 
 def publish(request):
     if request.method == 'POST':
-        user, created = Profile.objects.filter(
-            user=request.user)
+        user = Profile.objects.filter(user=request.user).first()
 
         source = request.POST.get('source')
         destination = request.POST.get('destination')

@@ -124,11 +124,17 @@
                                     <td style="font-weight: bold; padding-right: 2rem;">
                                         Poolers:
                                     </td>
+                                    <td>
+                                    {{ ride.publisher.user.username | title }}
+                                    </td>
                                     {% for pooler in ride.poolers.all %}
                                     {% if ride.publisher.user.username != pooler.user.username %}
+                                    <tr>
+                                    <td></td>
                                     <td>
                                         {{ pooler.user.username | title }}
                                     </td>
+                                    </tr>
                                     {% endif %}
                                     {% endfor %}
                                 </tr>
